@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrArmas - Fortnite Map Creator & UEFN Developer</title>
+    <meta name="description" content="Fortnite Map Creator and UEFN Developer">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0D1117">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    <link rel="apple-touch-startup-image" href="/icon-512x512.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <style>
+        :root {
+            --primary-color: #1E90FF;
+            --secondary-color: #5A33C9;
+            --accent-color: #FF6B4A;
+            --text-color: #FFFFFF;
+            --text-secondary: #AAB8C2;
+            --background: #0D1117;
+            --card-bg: #161B22;
+            --card-border: #30363D;
+            --button-hover: #2C333A;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0 30px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+        
+        .profile-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 25px;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            z-index: 2;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #1E90FF 0%, 
+                #5A33C9 25%, 
+                #FF6B4A 50%, 
+                #5A33C9 75%, 
+                #1E90FF 100%
+            );
+            animation: rotate 8s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .profile-container::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+            z-index: 0;
+        }
+        
+        .animated-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #1E90FF, #FF6B4A, #5A33C9, #1E90FF);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 6s ease infinite;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .bio-text {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-badge {
+            background-color: rgba(30, 144, 255, 0.15);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+        }
+        
+        .links-list {
+            list-style: none;
+        }
+        
+        .link-item {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        .link-item:hover {
+            background-color: var(--button-hover);
+            border-color: var(--card-border);
+        }
+        
+        .link-item i {
+            width: 20px;
+            margin-right: 15px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .link-content {
+            flex: 1;
+        }
+        
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .link-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background-color: var(--button-hover);
+            color: var(--primary-color);
+        }
+        
+        .social-link i {
+            font-size: 1.5rem;
+        }
+        
+        .social-link.linkedin {
+            background-color: #0077B5;
+        }
+        
+        .social-link.github {
+            background-color: #333;
+        }
+        
+        .social-link.twitter {
+            background-color: #000;
+        }
+        
+        .social-link.tiktok {
+            background-color: #000;
+        }
+        
+        .social-link.whatsapp {
+            background-color: #25D366;
+        }
+        
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .button.secondary {
+            background-color: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-color);
+        }
+        
+        .button.secondary:hover {
+            background-color: var(--button-hover);
+        }
+        
+        .button i {
+            margin-right: 8px;
+        }
+        
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: rgba(46, 204, 113, 0.15);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #2ECC71;
+            margin-top: 5px;
+        }
+        
+        .live-indicator::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #2ECC71;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 30px 0 25px;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .social-link {
+            text-decoration: none;
+            border-bottom: none;
+            box-shadow: none;
+        }
+        
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(125deg, #0D1117 0%, #121825 25%, #151C30 50%, #121825 75%, #0D1117 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 30s ease infinite;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-15px) translateX(5px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 0 8px #FFFFFF, 0 0 12px rgba(255, 255, 255, 0.3);
+            animation: twinkle infinite;
+            transition: opacity 1s ease;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-bg"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+    <div class="container">
+        <header class="header">
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <img src="icon/icon.png" alt="MrArmas" class="profile-img">
+            </div>
+            <h1 class="animated-name">Alexandru Armas</h1>
+            <p class="title">Fortnite Map Creator & UEFN Developer</p>
+        </header>
+        
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+            <p class="bio-text">
+                Fortnite Map Creator and UEFN developer specializing in creating immersive gaming experiences. With expertise in Unreal Engine, 3D modeling, and game mechanics design, I build unique and engaging Fortnite maps and experiences.
+            </p>
+            <div class="skills-container">
+                <span class="skill-badge">UEFN</span>
+                <span class="skill-badge">Fortnite Creative</span>
+                <span class="skill-badge">Unreal Engine</span>
+                <span class="skill-badge">3D Modeling</span>
+                <span class="skill-badge">Level Design</span>
+                <span class="skill-badge">Game Mechanics</span>
+                <span class="skill-badge">Verse Scripting</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-link"></i> Links</h2>
+            <ul class="links-list">
+                <a href="https://alexandruarmas.ro" style="text-decoration: none; color: inherit;">
+                    <li class="link-item">
+                        <i class="fas fa-globe"></i>
+                        <div class="link-content">
+                            <div class="link-title">My Website</div>
+                            <div class="link-subtitle">alexandruarmas.ro</div>
+                            <div class="live-indicator">Live</div>
+                        </div>
+                    </li>
+                </a>
+                <a href="mailto:contact@alexandruarmas.ro" style="text-decoration: none; color: inherit;">
+                    <li class="link-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="link-content">
+                            <div class="link-title">Email Me</div>
+                            <div class="link-subtitle">contact@alexandruarmas.ro</div>
+                        </div>
+                    </li>
+                </a>
+                <li class="link-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="link-content">
+                        <div class="link-title">ARM-Studio</div>
+                        <div class="link-subtitle">Fortnite Map Creator & UEFN Developer</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-hashtag"></i> Social Media</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/alexandruarmas/" class="social-link linkedin" aria-label="LinkedIn" style="text-decoration: none;">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/mrarmas02" class="social-link github" aria-label="GitHub" style="text-decoration: none;">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="http://www.x.com/mrarmas02" class="social-link twitter" aria-label="X" style="text-decoration: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://tiktok.com/@mrarmas02" class="social-link tiktok" aria-label="TikTok" style="text-decoration: none;">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/+40726018217" class="social-link whatsapp" aria-label="WhatsApp" style="text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <a href="#" class="button" id="downloadVcard">
+            <i class="fas fa-address-card"></i> ADD TO CONTACTS
+        </a>
+        
+        <a href="#" class="button secondary" id="sharePage">
+            <i class="fas fa-share-alt"></i> SHARE THIS PAGE
+        </a>
+        
+        <footer class="footer">
+            <p>&copy; <span id="currentYear"></span> Alexandru Armas. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Generate vCard data
+        function generateVCard() {
+            return `BEGIN:VCARD
+VERSION:3.0
+FN:Alexandru Armas
+TITLE:Fortnite Map Creator & UEFN Developer
+TEL;TYPE=CELL:+40726018217
+EMAIL:contact@alexandruarmas.ro
+URL:https://alexandruarmas.ro
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/alexandruarmas/
+URL;TYPE=GitHub:https://github.com/mrarmas02
+URL;TYPE=Twitter:http://www.x.com/mrarmas02
+URL;TYPE=TikTok:https://tiktok.com/@mrarmas02
+NOTE:Fortnite Map Creator and UEFN developer specializing in creating immersive gaming experiences.
+END:VCARD`;
+        }
+
+        // Download vCard
+        document.getElementById('downloadVcard').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Contact details
+            const contactName = "Alexandru Armas";
+            const contactPhone = "+40726018217";
+            const contactEmail = "contact@alexandruarmas.ro";
+            const contactTitle = "Fortnite Map Creator & UEFN Developer";
+            const contactNote = "Fortnite Map Creator and UEFN developer specializing in creating immersive gaming experiences.";
+            const contactWebsite = "https://alexandruarmas.ro";
+            
+            // First try using the newer deep link approach for mobile
+            if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                // Create a vCard
+                const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactName}
+TITLE:${contactTitle}
+TEL;TYPE=CELL:${contactPhone}
+EMAIL:${contactEmail}
+URL:${contactWebsite}
+NOTE:${contactNote}
+END:VCARD`;
+                
+                // For iOS
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    // Create URI encoded data
+                    const vcfData = encodeURIComponent(vCard);
+                    // Add to contacts via iOS scheme
+                    window.location.href = `data:text/x-vcard;charset=utf-8,${vcfData}`;
+                } 
+                // For Android
+                else if (/Android/i.test(navigator.userAgent)) {
+                    // Create a contact intent URL
+                    const intentUrl = `intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;` +
+                        `S.name=${encodeURIComponent(contactName)};` +
+                        `S.phone=${encodeURIComponent(contactPhone)};` +
+                        `S.email=${encodeURIComponent(contactEmail)};` +
+                        `S.notes=${encodeURIComponent(contactNote)};` +
+                        `S.website=${encodeURIComponent(contactWebsite)};` +
+                        `end`;
+                    window.location.href = intentUrl;
+                }
+            } 
+            // Fallback method for desktop or if the above fails
+            else {
+                const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactName}
+TITLE:${contactTitle}
+TEL;TYPE=CELL:${contactPhone}
+EMAIL:${contactEmail}
+URL:${contactWebsite}
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/alexandruarmas/
+URL;TYPE=GitHub:https://github.com/mrarmas02
+URL;TYPE=Twitter:http://www.x.com/mrarmas02
+URL;TYPE=TikTok:https://tiktok.com/@mrarmas02
+NOTE:${contactNote}
+END:VCARD`;
+                
+                const blob = new Blob([vCardData], { type: 'text/vcard' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'alexandru_armas.vcf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                alert('Contact file created. Please import this file into your contacts app.');
+            }
+        });
+
+        // Share page
+        document.getElementById('sharePage').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Alexandru Armas - Fortnite Map Creator & UEFN Developer',
+                    text: 'Check out Alexandru Armas, Fortnite Map Creator and UEFN Developer',
+                    url: window.location.href
+                })
+                .catch(error => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const tempInput = document.createElement('input');
+                document.body.appendChild(tempInput);
+                tempInput.value = window.location.href;
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                alert('Link copied to clipboard!');
+            }
+        });
+        
+        // Add PWA support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Update the createParticles function to include stars
+        function createBackgroundElements() {
+            const particlesContainer = document.getElementById('particles');
+            const colors = ['#1E90FF', '#5A33C9', '#FF6B4A'];
+            const particleCount = 15;
+            const starCount = 30;
+            
+            // Clear any existing elements
+            particlesContainer.innerHTML = '';
+            
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                
+                // Random color
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random animation duration
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 10;
+                
+                // Apply styles
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
+                particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+                particle.style.animation = `particleFloat ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Create stars
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 2 + 1;
+                
+                // Random animation timing
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                
+                // Apply styles
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(star);
+            }
+            
+            // Set up periodic star repositioning
+            setInterval(repositionStars, 8000);
+        }
+
+        // Function to reposition some stars randomly
+        function repositionStars() {
+            const stars = document.querySelectorAll('.star');
+            const starsToMove = Math.floor(stars.length / 3); // Move about 1/3 of stars
+            
+            const starsArray = Array.from(stars);
+            // Shuffle array to randomly select stars
+            for (let i = starsArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [starsArray[i], starsArray[j]] = [starsArray[j], starsArray[i]];
+            }
+            
+            // Reposition the selected stars
+            for (let i = 0; i < starsToMove; i++) {
+                const star = starsArray[i];
+                
+                // Make star disappear
+                star.style.opacity = '0';
+                
+                setTimeout(() => {
+                    // New random position
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    
+                    // New random size
+                    const size = Math.random() * 2 + 1;
+                    
+                    // Update styles
+                    star.style.left = `${posX}%`;
+                    star.style.top = `${posY}%`;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    
+                    // Make star appear again
+                    star.style.opacity = '1';
+                }, 1000); // Wait for fade out before repositioning
+            }
+        }
+
+        // Initialize background elements after page load
+        window.addEventListener('load', createBackgroundElements);
+    </script>
+</body>
+</html>
