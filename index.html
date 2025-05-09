@@ -180,14 +180,19 @@
         }
         
         .bio-text {
-            color: var(--text-secondary);
+            color: #FFD700;
             margin-bottom: 15px;
             font-size: 15px;
-            font-family: 'Bungee', cursive;
-            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
             letter-spacing: 0.5px;
             line-height: 1.8;
-            text-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000,
+                0 0 8px rgba(255, 215, 0, 0.6);
         }
         
         .skills-container {
@@ -612,7 +617,7 @@
                          0 0 20px rgba(30, 144, 255, 0.4),
                          0 0 30px rgba(30, 144, 255, 0.2);
             letter-spacing: 2px;
-            animation: fadeIn 0.5s ease-out forwards;
+            animation: fadeIn 0.5s ease-out forwards, glitch 1s infinite;
             animation-delay: 0.5s;
             text-align: center;
             width: 100%;
@@ -621,7 +626,7 @@
 
         .intro-subtitle {
             position: absolute;
-            bottom: -140px;
+            bottom: -170px;
             left: 50%;
             transform: translateX(-50%);
             color: var(--text-secondary);
@@ -649,7 +654,7 @@
 
             .intro-subtitle {
                 font-size: 13.2px;
-                bottom: -140px;
+                bottom: -155px;
                 white-space: normal;
                 line-height: 1.4;
                 max-width: 280px;
@@ -664,7 +669,7 @@
 
             .intro-subtitle {
                 font-size: 12.1px;
-                bottom: -140px;
+                bottom: -150px;
                 max-width: 240px;
             }
         }
@@ -1023,6 +1028,45 @@
                 animation: none;
             }
         }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
+                             0 0 20px rgba(30, 144, 255, 0.4),
+                             0 0 30px rgba(30, 144, 255, 0.2);
+                transform: translateX(-50%) translate(0);
+            }
+            20% {
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
+                             0 0 20px rgba(30, 144, 255, 0.4),
+                             0 0 30px rgba(30, 144, 255, 0.2);
+                transform: translateX(-50%) translate(-2px, 2px);
+            }
+            40% {
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
+                             0 0 20px rgba(30, 144, 255, 0.4),
+                             0 0 30px rgba(30, 144, 255, 0.2);
+                transform: translateX(-50%) translate(-2px, -2px);
+            }
+            60% {
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
+                             0 0 20px rgba(30, 144, 255, 0.4),
+                             0 0 30px rgba(30, 144, 255, 0.2);
+                transform: translateX(-50%) translate(2px, 2px);
+            }
+            80% {
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
+                             0 0 20px rgba(30, 144, 255, 0.4),
+                             0 0 30px rgba(30, 144, 255, 0.2);
+                transform: translateX(-50%) translate(2px, -2px);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
+                             0 0 20px rgba(30, 144, 255, 0.4),
+                             0 0 30px rgba(30, 144, 255, 0.2);
+                transform: translateX(-50%) translate(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1034,7 +1078,7 @@
             <div class="intro-ring"></div>
             <img src="icon/icon.png" alt="mrarmas" class="intro-logo">
             <div class="intro-text">mrarmas</div>
-            <div class="intro-subtitle">Creator de Hărți Fortnite și Dezvoltator UEFN</div>
+            <div class="intro-subtitle">Creator De Hărți UEFN și Dezvoltator Unreal Engine</div>
         </div>
     </div>
 
@@ -1050,7 +1094,7 @@
                     <img src="icon/icon.png" alt="MrArmas" class="profile-img">
                 </div>
                 <h1 class="animated-name">Alexandru Armas</h1>
-                <p class="title">Creator de Hărți Fortnite și Dezvoltator UEFN</p>
+                <p class="title">Creator De Hărți UEFN și Dezvoltator Unreal Engine</p>
             </header>
             
             <div class="card">
@@ -1061,8 +1105,9 @@
 Combin designul creativ cu precizia tehnică, utilizând instrumente puternice de modelare 3D și VFX, cum ar fi Blender, Maya, 3ds Max, Cinema 4D și Houdini, pentru a dezvolta active și medii de înaltă calitate. Accentul meu este pe construirea de hărți Fortnite inovatoare din punct de vedere vizual, bogate în povești și care ies în evidență în peisajul competitiv.
 
 Fie că este vorba de arene competitive, hărți de aventură sau vitrine cinematografice, marca mrarmas reprezintă originalitate, calitate și un gameplay de neuitat.
-
-Codul Creatorului Fortnite: mrarmas
+                </p>
+                <p class="bio-text" style="text-align: center; margin-top: 10px; font-size: 16px; font-weight: 600;">
+                    Codul Creatorului Fortnite: <span style="color: #FF0000; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000; font-family: 'Montserrat', sans-serif; text-transform: lowercase !important; animation: glitch 1s infinite; display: inline-block; font-size: 14px; letter-spacing: 1px; margin-left: 35px; padding-left: 5px;">mrarmas</span>
                 </p>
                 <div class="skills-container">
                     <span class="skill-badge">UEFN</span>
@@ -1101,7 +1146,7 @@ Codul Creatorului Fortnite: mrarmas
                         <i class="fas fa-briefcase"></i>
                         <div class="link-content">
                             <div class="link-title">ARM-Studio</div>
-                            <div class="link-subtitle">Creator De Hărți Fortnite Și Dezvoltator UEFN</div>
+                            <div class="link-subtitle">Creator De Hărți UEFN și Dezvoltator Unreal Engine</div>
                         </div>
                     </li>
                 </ul>
@@ -1171,7 +1216,7 @@ Codul Creatorului Fortnite: mrarmas
             const introOverlay = document.getElementById('introOverlay');
             const mainContent = document.getElementById('mainContent');
             
-            // Show main content after 2.5 seconds
+            // Show main content after 3.0 seconds
             setTimeout(() => {
                 introOverlay.style.opacity = '0';
                 mainContent.classList.add('visible');
@@ -1180,7 +1225,7 @@ Codul Creatorului Fortnite: mrarmas
                 setTimeout(() => {
                     introOverlay.style.display = 'none';
                 }, 500);
-            }, 2500);
+            }, 3000);
         });
 
         // Set current year in footer

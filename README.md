@@ -1,6 +1,6 @@
-# MrArmas - Website Portofoliu Personal
+# MrArmas - Creator De Hărți UEFN și Dezvoltator Unreal Engine
 
-Un website portofoliu personal modern și responsiv care prezintă munca mea ca Creator de Hărți Fortnite și Dezvoltator UEFN.
+Un website portofoliu personal modern și responsiv care prezintă munca mea ca Creator De Hărți UEFN și Dezvoltator Unreal Engine, specializat în crearea de experiențe imersive și interactive pentru Fortnite.
 
 ## 🌟 Caracteristici
 
@@ -43,6 +43,7 @@ Website-ul este complet responsiv cu puncte de întrerupere pentru:
 - Tranziții line
 - Stări interactive la hover
 - Animații personalizate
+- Efecte cyberpunk pentru text
 
 ## 🔧 Instalare
 
@@ -82,9 +83,11 @@ Acest proiect este licențiat sub Licența MIT - consultați fișierul LICENSE p
 - GitHub: [mrarmas02](https://github.com/mrarmas02)
 - X: [@mrarmas02](http://www.x.com/mrarmas02)
 - TikTok: [@mrarmas02](https://tiktok.com/@mrarmas02)
+- Cod Creator Fortnite: mrarmas
 
 ## 🙏 Mulțumiri
 
 - Font Awesome pentru iconițe
 - Google Fonts pentru tipografie
-- Comunitatea Fortnite Creative pentru inspirație 
+- Comunitatea Fortnite Creative pentru inspirație
+- Epic Games pentru Unreal Engine și UEFN 
