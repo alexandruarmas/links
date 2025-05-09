@@ -5,7 +5,8 @@ Un website portofoliu personal modern și interactiv pentru un creator de hărț
 ## ✨ Caracteristici
 
 - **Design Modern**: Interfață curată și profesională cu efecte vizuale subtile
-- **Animație de Intro**: Efect de portal cu logo rotativ și text cu efect glitch
+- **Animație de Intro**: Efect de portal cu logo rotativ și text cu efect glitch (3.5 secunde)
+- **Text Stivuit**: Subtitlul animației este afișat pe rânduri multiple pentru lizibilitate optimă
 - **Design Responsiv**: Se adaptează perfect la toate dimensiunile de ecran
 - **Temă Întunecată**: Design optimizat pentru modul întunecat
 - **Accesibilitate**: Compatibil cu tehnologiile de asistență
@@ -30,6 +31,7 @@ Un website portofoliu personal modern și interactiv pentru un creator de hărț
 - Layout optimizat pentru diferite orientări
 - Font-uri și spațieri ajustate pentru fiecare dispozitiv
 - Animații optimizate pentru performanță
+- Text stivuit pentru lizibilitate îmbunătățită pe dispozitive mobile
 
 ## 🚀 Instalare
 

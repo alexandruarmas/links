@@ -516,8 +516,9 @@
 
         .intro-container {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
+            overflow: visible;
         }
 
         .portal-ring {
@@ -626,24 +627,36 @@
 
         .intro-subtitle {
             position: absolute;
-            bottom: -170px;
+            bottom: -185px;
             left: 50%;
             transform: translateX(-50%);
             color: var(--text-secondary);
             font-family: 'Bungee', cursive;
-            font-size: 15.4px;
+            font-size: 15px;
             font-weight: 500;
-            white-space: nowrap;
+            white-space: normal;
             opacity: 0;
             text-shadow: 0 0 8px rgba(30, 144, 255, 0.6),
                          0 0 15px rgba(30, 144, 255, 0.3);
             letter-spacing: 1px;
             animation: fadeIn 0.5s ease-out forwards;
             animation-delay: 0.8s;
-            max-width: 90%;
+            max-width: 300px;
+            width: auto;
             text-align: center;
             line-height: 1.4;
             z-index: 4;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            hyphens: manual;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        .intro-subtitle br {
+            display: block;
+            content: "";
+            margin-top: 2px;
         }
 
         @media (max-width: 480px) {
@@ -653,11 +666,15 @@
             }
 
             .intro-subtitle {
-                font-size: 13.2px;
-                bottom: -155px;
+                font-size: 13px;
+                bottom: -170px;
                 white-space: normal;
                 line-height: 1.4;
                 max-width: 280px;
+                text-align: center;
+                word-break: keep-all;
+                margin: 0 auto;
+                overflow: visible;
             }
         }
 
@@ -668,9 +685,13 @@
             }
 
             .intro-subtitle {
-                font-size: 12.1px;
-                bottom: -150px;
-                max-width: 240px;
+                font-size: 12px;
+                bottom: -165px;
+                max-width: 260px;
+                text-align: center;
+                word-break: keep-all;
+                margin: 0 auto;
+                overflow: visible;
             }
         }
 
@@ -1078,7 +1099,7 @@
             <div class="intro-ring"></div>
             <img src="icon/icon.png" alt="mrarmas" class="intro-logo">
             <div class="intro-text">mrarmas</div>
-            <div class="intro-subtitle">Creator De Hărți UEFN și Dezvoltator Unreal Engine</div>
+            <div class="intro-subtitle">CREATOR DE<br>HĂRȚI UEFN<br>ȘI<br><span style="letter-spacing: 0.8px; display: inline-block;">DEZVOLTATOR</span><br>UNREAL ENGINE</div>
         </div>
     </div>
 
@@ -1128,7 +1149,7 @@ Fie că este vorba de arene competitive, hărți de aventură sau vitrine cinema
                             <i class="fas fa-globe"></i>
                             <div class="link-content">
                                 <div class="link-title">Website-ul Meu</div>
-                                <div class="link-subtitle">alexandruarmas.ro</div>
+                                <div class="link-subtitle">https://alexandruarmas.ro</div>
                                 <div class="live-indicator">Live</div>
                             </div>
                         </li>
