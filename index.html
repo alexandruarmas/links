@@ -1273,43 +1273,10 @@ Fie că este vorba de arene competitive, hărți de aventură sau vitrine cinema
             const contactNote = "Creator De Hărți Fortnite și Dezvoltator UEFN, specializat în crearea de experiențe de joc imersive.";
             const contactWebsite = "https://alexandruarmas.ro";
             
-            // First try using the newer deep link approach for mobile
-            if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                // Create a vCard
-                const vCard = `BEGIN:VCARD
+            // Create a standard vCard format
+            const vCardData = `BEGIN:VCARD
 VERSION:3.0
-FN:${contactName}
-TITLE:${contactTitle}
-TEL;TYPE=CELL:${contactPhone}
-EMAIL:${contactEmail}
-URL:${contactWebsite}
-NOTE:${contactNote}
-END:VCARD`;
-                
-                // For iOS
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    // Create URI encoded data
-                    const vcfData = encodeURIComponent(vCard);
-                    // Add to contacts via iOS scheme
-                    window.location.href = `data:text/x-vcard;charset=utf-8,${vcfData}`;
-                } 
-                // For Android
-                else if (/Android/i.test(navigator.userAgent)) {
-                    // Create a contact intent URL
-                    const intentUrl = `intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;` +
-                        `S.name=${encodeURIComponent(contactName)};` +
-                        `S.phone=${encodeURIComponent(contactPhone)};` +
-                        `S.email=${encodeURIComponent(contactEmail)};` +
-                        `S.notes=${encodeURIComponent(contactNote)};` +
-                        `S.website=${encodeURIComponent(contactWebsite)};` +
-                        `end`;
-                    window.location.href = intentUrl;
-                }
-            } 
-            // Fallback method for desktop or if the above fails
-            else {
-                const vCardData = `BEGIN:VCARD
-VERSION:3.0
+N:Armas;Alexandru;;;
 FN:${contactName}
 TITLE:${contactTitle}
 TEL;TYPE=CELL:${contactPhone}
@@ -1321,18 +1288,19 @@ URL;TYPE=Twitter:http://www.x.com/mrarmas02
 URL;TYPE=TikTok:https://tiktok.com/@mrarmas02
 NOTE:${contactNote}
 END:VCARD`;
-                
-                const blob = new Blob([vCardData], { type: 'text/vcard' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'alexandru_armas.vcf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                alert('Contact file created. Please import this file into your contacts app.');
-            }
+            
+            // Create a blob and download link
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'alexandru_armas.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Provide feedback to user
+            alert('Contact file created. Please import this file into your contacts app.');
         });
 
         // Share page
