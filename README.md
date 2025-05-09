@@ -83,7 +83,7 @@ Acest proiect este licențiat sub Licența MIT - consultați fișierul LICENSE p
 - GitHub: [mrarmas02](https://github.com/mrarmas02)
 - X: [@mrarmas02](http://www.x.com/mrarmas02)
 - TikTok: [@mrarmas02](https://tiktok.com/@mrarmas02)
-- Cod Creator Fortnite: mrarmas
+- Cod Creator Fortnite: [mrarmas](https://www.fortnite.com/@mrarmas)
 
 ## 🙏 Mulțumiri
 
