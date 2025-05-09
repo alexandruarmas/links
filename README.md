@@ -1,63 +1,44 @@
 # MrArmas - Creator De Hărți UEFN și Dezvoltator Unreal Engine
 
-Un website portofoliu personal modern și responsiv care prezintă munca mea ca Creator De Hărți UEFN și Dezvoltator Unreal Engine, specializat în crearea de experiențe imersive și interactive pentru Fortnite.
+Un website portofoliu personal modern și interactiv pentru un creator de hărți Fortnite și dezvoltator UEFN, prezentând proiecte, abilități și informații de contact într-un design elegant și responsiv.
 
-## 🌟 Caracteristici
+## ✨ Caracteristici
 
-- **Design Modern**: Interfață curată și profesională cu animații fluide
-- **Layout Responsiv**: Optimizat pentru toate dispozitivele (desktop, tabletă, mobil)
-- **Elemente Interactive**: 
-  - Secvență de introducere animată
-  - Particule de fundal dinamice
-  - Link-uri sociale interactive
-  - Descărcare card de contact
-- **Accesibilitate**: 
-  - Suport pentru mod întunecat
-  - Mod contrast ridicat
-  - Preferințe pentru mișcare redusă
-- **Suport PWA**: Poate fi instalat ca aplicație web progresivă
+- **Design Modern**: Interfață curată și profesională cu efecte vizuale subtile
+- **Animație de Intro**: Efect de portal cu logo rotativ și text cu efect glitch
+- **Design Responsiv**: Se adaptează perfect la toate dimensiunile de ecran
+- **Temă Întunecată**: Design optimizat pentru modul întunecat
+- **Accesibilitate**: Compatibil cu tehnologiile de asistență
+- **PWA**: Funcționează offline și poate fi instalat pe dispozitive
+- **Efecte Cyberpunk**: Animații și efecte vizuale moderne
+- **Optimizare Performanță**: Încărcare rapidă și animații optimizate
 
-## 🛠️ Tehnologii Utilizate
+## 🛠 Tehnologii Utilizate
 
 - HTML5
-- CSS3 (cu Variabile CSS și Flexbox)
-- JavaScript (Vanilla)
-- Iconițe Font Awesome
-- Fonturi Google (Montserrat, Bungee)
-- Funcționalități PWA
+- CSS3 (cu variabile CSS și Flexbox)
+- JavaScript (ES6+)
+- Font Awesome pentru iconițe
+- Google Fonts (Montserrat și Bungee)
+- Service Workers pentru PWA
+- Animații CSS și JavaScript
+- Efecte de particule și gradient
 
 ## 📱 Design Responsiv
 
-Website-ul este complet responsiv cu puncte de întrerupere pentru:
-- Desktop (> 768px)
-- Tabletă (≤ 768px)
-- Mobil (≤ 480px)
-- Mobil Mic (≤ 360px)
-- Mod Peisaj
+- Adaptare perfectă pentru desktop, tabletă și mobil
+- Layout optimizat pentru diferite orientări
+- Font-uri și spațieri ajustate pentru fiecare dispozitiv
+- Animații optimizate pentru performanță
 
-## 🎨 Caracteristici de Design
+## 🚀 Instalare
 
-- Animații cu gradient
-- Efecte de particule
-- Efecte de text strălucitor
-- Tranziții line
-- Stări interactive la hover
-- Animații personalizate
-- Efecte cyberpunk pentru text
-
-## 🔧 Instalare
-
-1. Clonați repository-ul:
+1. Clonează repository-ul:
 ```bash
 git clone https://github.com/mrarmas02/links.git
 ```
 
-2. Navigați în directorul proiectului:
-```bash
-cd links
-```
-
-3. Deschideți `index.html` în browser sau folosiți un server local.
+2. Deschide `index.html` în browser sau folosește un server local.
 
 ## 📦 Instalare PWA
 
@@ -76,18 +57,17 @@ Acest proiect este licențiat sub Licența MIT - consultați fișierul LICENSE p
 
 ## 👤 Autor
 
-**Alexandru Armas**
+- **Alexandru Armas** - *Fortnite Map Creator & UEFN Developer*
 - Website: [alexandruarmas.ro](https://alexandruarmas.ro)
+- Cod Creator Fortnite: [mrarmas](https://www.fortnite.com/@mrarmas)
 - Email: contact@alexandruarmas.ro
 - LinkedIn: [alexandruarmas](https://www.linkedin.com/in/alexandruarmas/)
 - GitHub: [mrarmas02](https://github.com/mrarmas02)
 - X: [@mrarmas02](http://www.x.com/mrarmas02)
 - TikTok: [@mrarmas02](https://tiktok.com/@mrarmas02)
-- Cod Creator Fortnite: [mrarmas](https://www.fortnite.com/@mrarmas)
 
 ## 🙏 Mulțumiri
 
-- Font Awesome pentru iconițe
-- Google Fonts pentru tipografie
+- Epic Games pentru Unreal Engine și UEFN
 - Comunitatea Fortnite Creative pentru inspirație
-- Epic Games pentru Unreal Engine și UEFN 
+- Toți colaboratorii și suporterii proiectelor mele 
