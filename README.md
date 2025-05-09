@@ -1,39 +1,90 @@
-# Personal Links Page
+# MrArmas - Website Portofoliu Personal
 
-A modern, responsive personal links page inspired by link-in-bio platforms. Features a clean design with dark mode, animated background effects, and PWA support.
+Un website portofoliu personal modern și responsiv care prezintă munca mea ca Creator de Hărți Fortnite și Dezvoltator UEFN.
 
-## Features
+## 🌟 Caracteristici
 
-- Responsive design that works on all device sizes
-- Modern dark theme with gradient effects
-- Animated background with particles and stars
-- Progressive Web App (PWA) support for offline use
-- Add to contacts functionality
-- Social media links
-- Skills and bio section
+- **Design Modern**: Interfață curată și profesională cu animații fluide
+- **Layout Responsiv**: Optimizat pentru toate dispozitivele (desktop, tabletă, mobil)
+- **Elemente Interactive**: 
+  - Secvență de introducere animată
+  - Particule de fundal dinamice
+  - Link-uri sociale interactive
+  - Descărcare card de contact
+- **Accesibilitate**: 
+  - Suport pentru mod întunecat
+  - Mod contrast ridicat
+  - Preferințe pentru mișcare redusă
+- **Suport PWA**: Poate fi instalat ca aplicație web progresivă
 
-## Technologies Used
+## 🛠️ Tehnologii Utilizate
 
 - HTML5
-- CSS3
-- JavaScript
-- PWA capabilities
-- Font Awesome icons
+- CSS3 (cu Variabile CSS și Flexbox)
+- JavaScript (Vanilla)
+- Iconițe Font Awesome
+- Fonturi Google (Montserrat, Bungee)
+- Funcționalități PWA
 
-## Setup
+## 📱 Design Responsiv
 
-Simply clone this repository and open `index.html` in your browser, or host it on any web server.
+Website-ul este complet responsiv cu puncte de întrerupere pentru:
+- Desktop (> 768px)
+- Tabletă (≤ 768px)
+- Mobil (≤ 480px)
+- Mobil Mic (≤ 360px)
+- Mod Peisaj
 
+## 🎨 Caracteristici de Design
+
+- Animații cu gradient
+- Efecte de particule
+- Efecte de text strălucitor
+- Tranziții line
+- Stări interactive la hover
+- Animații personalizate
+
+## 🔧 Instalare
+
+1. Clonați repository-ul:
 ```bash
-git clone https://github.com/alexandruarmas/links.git
-cd links
-# Open index.html in your browser or serve with a local server
+git clone https://github.com/mrarmas02/links.git
 ```
 
-## License
+2. Navigați în directorul proiectului:
+```bash
+cd links
+```
 
-MIT License
+3. Deschideți `index.html` în browser sau folosiți un server local.
 
-## Author
+## 📦 Instalare PWA
 
-Alexandru Armas - Fortnite Map Creator & UEFN Developer 
+Website-ul poate fi instalat ca Aplicație Web Progresivă:
+1. Vizitați website-ul
+2. Apăsați pe promptul de instalare din browser
+3. Aplicația va fi adăugată pe ecranul principal
+
+## 🤝 Contribuții
+
+Contribuțiile sunt binevenite! Vă rugăm să trimiteți un Pull Request.
+
+## 📄 Licență
+
+Acest proiect este licențiat sub Licența MIT - consultați fișierul LICENSE pentru detalii.
+
+## 👤 Autor
+
+**Alexandru Armas**
+- Website: [alexandruarmas.ro](https://alexandruarmas.ro)
+- Email: contact@alexandruarmas.ro
+- LinkedIn: [alexandruarmas](https://www.linkedin.com/in/alexandruarmas/)
+- GitHub: [mrarmas02](https://github.com/mrarmas02)
+- X: [@mrarmas02](http://www.x.com/mrarmas02)
+- TikTok: [@mrarmas02](https://tiktok.com/@mrarmas02)
+
+## 🙏 Mulțumiri
+
+- Font Awesome pentru iconițe
+- Google Fonts pentru tipografie
+- Comunitatea Fortnite Creative pentru inspirație 

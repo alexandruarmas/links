@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MrArmas - Creator de Hărți Fortnite și Dezvoltator UEFN</title>
+    <title>MrArmas - Fortnite Map Creator & UEFN Developer</title>
     <meta name="description" content="Fortnite Map Creator and UEFN Developer">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0D1117">
@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="/icon-192x192.png">
@@ -163,15 +162,10 @@
         .section-title {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-color);
+            color: var(--text-secondary);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            font-family: 'Bungee', cursive;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
-                         0 0 20px rgba(30, 144, 255, 0.4),
-                         0 0 30px rgba(30, 144, 255, 0.2);
         }
         
         .section-title i {
@@ -180,14 +174,9 @@
         }
         
         .bio-text {
-            color: var(--text-secondary);
+            color: var(--text-color);
             margin-bottom: 15px;
             font-size: 15px;
-            font-family: 'Bungee', cursive;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            line-height: 1.8;
-            text-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
         }
         
         .skills-container {
@@ -241,20 +230,11 @@
         .link-title {
             font-weight: 600;
             margin-bottom: 5px;
-            font-family: 'Montserrat', sans-serif;
         }
         
         .link-subtitle {
             font-size: 13px;
-            color: #FFFFFF;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.5px;
-            text-shadow: 
-                -1px -1px 0 #000,
-                1px -1px 0 #000,
-                -1px 1px 0 #000,
-                1px 1px 0 #000;
-            font-weight: 400;
+            color: var(--text-secondary);
         }
         
         .social-links {
@@ -492,697 +472,114 @@
                 transform: scale(1.2);
             }
         }
-
-        /* Intro Animation Styles */
-        .intro-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--background);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease-out;
-            overflow: hidden;
-        }
-
-        .intro-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-        }
-
-        .portal-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(
-                #1E90FF 0%, 
-                #5A33C9 25%, 
-                #FF6B4A 50%, 
-                #5A33C9 75%, 
-                #1E90FF 100%
-            );
-            animation: rotate 2s linear infinite;
-            filter: blur(2px);
-        }
-
-        .portal-glow {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at center, 
-                rgba(30, 144, 255, 0.2) 0%,
-                rgba(90, 51, 201, 0.2) 25%,
-                rgba(255, 107, 74, 0.2) 50%,
-                rgba(90, 51, 201, 0.2) 75%,
-                rgba(30, 144, 255, 0.2) 100%
-            );
-            animation: pulse 2s ease-in-out infinite;
-            filter: blur(15px);
-        }
-
-        .portal-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            animation: rotate 4s linear infinite;
-        }
-
-        .portal-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.6;
-            filter: blur(1px);
-        }
-
-        .intro-ring {
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
-            border-radius: 50%;
-            background: conic-gradient(
-                #1E90FF 0%, 
-                #5A33C9 25%, 
-                #FF6B4A 50%, 
-                #5A33C9 75%, 
-                #1E90FF 100%
-            );
-            animation: rotate 2s linear infinite;
-            z-index: 2;
-        }
-
-        .intro-logo {
-            position: absolute;
-            width: 70%;
-            height: 70%;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            top: 15%;
-            left: 15%;
-            z-index: 3;
-            box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
-        }
-
-        .intro-text {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--text-color);
-            font-family: 'Bungee', cursive;
-            font-size: 28px;
-            font-weight: 800;
-            white-space: nowrap;
-            opacity: 0;
-            text-transform: lowercase;
-            text-shadow: 0 0 10px rgba(30, 144, 255, 0.8),
-                         0 0 20px rgba(30, 144, 255, 0.4),
-                         0 0 30px rgba(30, 144, 255, 0.2);
-            letter-spacing: 2px;
-            animation: fadeIn 0.5s ease-out forwards;
-            animation-delay: 0.5s;
-            text-align: center;
-            width: 100%;
-            z-index: 4;
-        }
-
-        .intro-subtitle {
-            position: absolute;
-            bottom: -140px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--text-secondary);
-            font-family: 'Bungee', cursive;
-            font-size: 15.4px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            text-shadow: 0 0 8px rgba(30, 144, 255, 0.6),
-                         0 0 15px rgba(30, 144, 255, 0.3);
-            letter-spacing: 1px;
-            animation: fadeIn 0.5s ease-out forwards;
-            animation-delay: 0.8s;
-            max-width: 90%;
-            text-align: center;
-            line-height: 1.4;
-            z-index: 4;
-        }
-
-        @media (max-width: 480px) {
-            .intro-text {
-                font-size: 24px;
-                bottom: -45px;
-            }
-
-            .intro-subtitle {
-                font-size: 13.2px;
-                bottom: -140px;
-                white-space: normal;
-                line-height: 1.4;
-                max-width: 280px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .intro-text {
-                font-size: 22px;
-                bottom: -43px;
-            }
-
-            .intro-subtitle {
-                font-size: 12.1px;
-                bottom: -140px;
-                max-width: 240px;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-
-        .main-content {
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-
-        .main-content.visible {
-            opacity: 1;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .container {
-                max-width: 100%;
-                padding: 15px;
-            }
-
-            .header {
-                padding: 30px 0 25px;
-            }
-
-            .profile-container {
-                width: 110px;
-                height: 110px;
-            }
-
-            .profile-img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .animated-name {
-                font-size: 24px;
-            }
-
-            .title {
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 15px;
-            }
-
-            .bio-text {
-                font-size: 14px;
-                line-height: 1.6;
-            }
-
-            .skill-badge {
-                font-size: 12px;
-                padding: 4px 8px;
-            }
-
-            .link-item {
-                padding: 12px;
-            }
-
-            .link-title {
-                font-size: 14px;
-            }
-
-            .link-subtitle {
-                font-size: 12px;
-            }
-
-            .social-link {
-                width: 42px;
-                height: 42px;
-            }
-
-            .social-link i {
-                font-size: 1.2rem;
-            }
-
-            .button {
-                padding: 14px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-
-            .header {
-                padding: 20px 0 20px;
-            }
-
-            .profile-container {
-                width: 90px;
-                height: 90px;
-                margin-bottom: 20px;
-            }
-
-            .profile-img {
-                width: 80px;
-                height: 80px;
-            }
-
-            .animated-name {
-                font-size: 22px;
-            }
-
-            .title {
-                font-size: 13px;
-                margin-bottom: 20px;
-            }
-
-            .card {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            .section-title {
-                font-size: 14px;
-                margin-bottom: 12px;
-            }
-
-            .bio-text {
-                font-size: 13px;
-                line-height: 1.5;
-            }
-
-            .skills-container {
-                gap: 6px;
-            }
-
-            .skill-badge {
-                font-size: 11px;
-                padding: 3px 6px;
-            }
-
-            .link-item {
-                padding: 10px;
-                margin-bottom: 8px;
-            }
-
-            .link-title {
-                font-size: 13px;
-            }
-
-            .link-subtitle {
-                font-size: 11px;
-            }
-
-            .social-links {
-                gap: 8px;
-            }
-
-            .social-link {
-                width: 38px;
-                height: 38px;
-            }
-
-            .social-link i {
-                font-size: 1.1rem;
-            }
-
-            .button {
-                padding: 12px;
-                font-size: 13px;
-                margin-bottom: 12px;
-            }
-
-            .footer {
-                font-size: 12px;
-                margin-top: 20px;
-                padding: 15px 0;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .container {
-                padding: 8px;
-            }
-
-            .header {
-                padding: 15px 0 15px;
-            }
-
-            .profile-container {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 15px;
-            }
-
-            .profile-img {
-                width: 70px;
-                height: 70px;
-            }
-
-            .animated-name {
-                font-size: 20px;
-            }
-
-            .title {
-                font-size: 12px;
-                margin-bottom: 15px;
-            }
-
-            .card {
-                padding: 12px;
-                margin-bottom: 12px;
-            }
-
-            .section-title {
-                font-size: 13px;
-                margin-bottom: 10px;
-            }
-
-            .bio-text {
-                font-size: 12px;
-                line-height: 1.4;
-            }
-
-            .skills-container {
-                gap: 4px;
-            }
-
-            .skill-badge {
-                font-size: 10px;
-                padding: 2px 5px;
-            }
-
-            .link-item {
-                padding: 8px;
-                margin-bottom: 6px;
-            }
-
-            .link-title {
-                font-size: 12px;
-            }
-
-            .link-subtitle {
-                font-size: 10px;
-            }
-
-            .social-links {
-                gap: 6px;
-            }
-
-            .social-link {
-                width: 34px;
-                height: 34px;
-            }
-
-            .social-link i {
-                font-size: 1rem;
-            }
-
-            .button {
-                padding: 10px;
-                font-size: 12px;
-                margin-bottom: 10px;
-            }
-
-            .footer {
-                font-size: 11px;
-                margin-top: 15px;
-                padding: 12px 0;
-            }
-        }
-
-        /* Landscape Mode Adjustments */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .container {
-                padding: 10px;
-            }
-
-            .header {
-                padding: 15px 0;
-                flex-direction: row;
-                gap: 20px;
-            }
-
-            .profile-container {
-                width: 70px;
-                height: 70px;
-                margin: 0;
-            }
-
-            .profile-img {
-                width: 60px;
-                height: 60px;
-            }
-
-            .header::after {
-                display: none;
-            }
-
-            .card {
-                padding: 12px;
-                margin-bottom: 10px;
-            }
-        }
-
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: #0D1117;
-                --card-bg: #161B22;
-                --card-border: #30363D;
-                --button-hover: #2C333A;
-            }
-        }
-
-        /* High Contrast Mode */
-        @media (prefers-contrast: high) {
-            :root {
-                --text-color: #FFFFFF;
-                --text-secondary: #CCCCCC;
-                --primary-color: #0066FF;
-                --secondary-color: #3300FF;
-                --accent-color: #FF3300;
-            }
-
-            .link-subtitle {
-                text-shadow: none;
-            }
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-
-            .profile-ring,
-            .intro-ring,
-            .portal-ring {
-                animation: none;
-            }
-
-            .particle,
-            .star {
-                animation: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="intro-overlay" id="introOverlay">
-        <div class="intro-container">
-            <div class="portal-glow"></div>
-            <div class="portal-ring"></div>
-            <div class="portal-particles" id="portalParticles"></div>
-            <div class="intro-ring"></div>
-            <img src="icon/icon.png" alt="mrarmas" class="intro-logo">
-            <div class="intro-text">mrarmas</div>
-            <div class="intro-subtitle">Creator de Hărți Fortnite și Dezvoltator UEFN</div>
-        </div>
+    <div class="background-animation">
+        <div class="gradient-bg"></div>
+        <div class="particles" id="particles"></div>
     </div>
-
-    <div class="main-content" id="mainContent">
-        <div class="background-animation">
-            <div class="gradient-bg"></div>
-            <div class="particles" id="particles"></div>
-        </div>
-        <div class="container">
-            <header class="header">
-                <div class="profile-container">
-                    <div class="profile-ring"></div>
-                    <img src="icon/icon.png" alt="MrArmas" class="profile-img">
-                </div>
-                <h1 class="animated-name">Alexandru Armas</h1>
-                <p class="title">Creator de Hărți Fortnite și Dezvoltator UEFN</p>
-            </header>
-            
-            <div class="card">
-                <h2 class="section-title"><i class="fas fa-user"></i> Despre Mine</h2>
-                <p class="bio-text">
-                    Sunt specializat în crearea de experiențe imersive și interactive Fortnite folosind Unreal Editor for Fortnite (UEFN) și Unreal Engine. Cu o experiență avansată în scripting-ul Verse, proiectez sisteme de joc dinamice și mecanisme personalizate care măresc implicarea jucătorilor.
+    <div class="container">
+        <header class="header">
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <img src="icon/icon.png" alt="MrArmas" class="profile-img">
+            </div>
+            <h1 class="animated-name">Alexandru Armas</h1>
+            <p class="title">Creator de Hărți Fortnite & Dezvoltator UEFN</p>
+        </header>
+        
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-user"></i> Despre Mine</h2>
+            <p class="bio-text">
+                Sunt specializat în crearea de experiențe imersive și interactive Fortnite folosind Unreal Editor for Fortnite (UEFN) și Unreal Engine. Cu o experiență avansată în scripting-ul Verse, proiectez sisteme de joc dinamice și mecanisme personalizate care măresc implicarea jucătorilor.
 
 Combin designul creativ cu precizia tehnică, utilizând instrumente puternice de modelare 3D și VFX, cum ar fi Blender, Maya, 3ds Max, Cinema 4D și Houdini, pentru a dezvolta active și medii de înaltă calitate. Accentul meu este pe construirea de hărți Fortnite inovatoare din punct de vedere vizual, bogate în povești și care ies în evidență în peisajul competitiv.
 
 Fie că este vorba de arene competitive, hărți de aventură sau vitrine cinematografice, marca mrarmas reprezintă originalitate, calitate și un gameplay de neuitat.
 
 Codul Creatorului Fortnite: mrarmas
-                </p>
-                <div class="skills-container">
-                    <span class="skill-badge">UEFN</span>
-                    <span class="skill-badge">Fortnite Creative</span>
-                    <span class="skill-badge">Unreal Engine</span>
-                    <span class="skill-badge">Modelare 3D</span>
-                    <span class="skill-badge">Design de Nivel</span>
-                    <span class="skill-badge">Mecanici de Joc</span>
-                    <span class="skill-badge">Scripting Verse</span>
-                </div>
+            </p>
+            <div class="skills-container">
+                <span class="skill-badge">UEFN</span>
+                <span class="skill-badge">Fortnite Creative</span>
+                <span class="skill-badge">Unreal Engine</span>
+                <span class="skill-badge">Modelare 3D</span>
+                <span class="skill-badge">Design de Nivel</span>
+                <span class="skill-badge">Mecanici de Joc</span>
+                <span class="skill-badge">Scripting Verse</span>
             </div>
-            
-            <div class="card">
-                <h2 class="section-title"><i class="fas fa-link"></i> Date de Contact</h2>
-                <ul class="links-list">
-                    <a href="https://alexandruarmas.ro" style="text-decoration: none; color: inherit;">
-                        <li class="link-item">
-                            <i class="fas fa-globe"></i>
-                            <div class="link-content">
-                                <div class="link-title">Website-ul Meu</div>
-                                <div class="link-subtitle">alexandruarmas.ro</div>
-                                <div class="live-indicator">Live</div>
-                            </div>
-                        </li>
-                    </a>
-                    <a href="mailto:contact@alexandruarmas.ro" style="text-decoration: none; color: inherit;">
-                        <li class="link-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="link-content">
-                                <div class="link-title">Trimite-mi Email</div>
-                                <div class="link-subtitle">contact@alexandruarmas.ro</div>
-                            </div>
-                        </li>
-                    </a>
+        </div>
+        
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-link"></i> Link-uri</h2>
+            <ul class="links-list">
+                <a href="https://alexandruarmas.ro" style="text-decoration: none; color: inherit;">
                     <li class="link-item">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-globe"></i>
                         <div class="link-content">
-                            <div class="link-title">ARM-Studio</div>
-                            <div class="link-subtitle">Creator De Hărți Fortnite Și Dezvoltator UEFN</div>
+                            <div class="link-title">Website-ul Meu</div>
+                            <div class="link-subtitle">alexandruarmas.ro</div>
+                            <div class="live-indicator">Live</div>
                         </div>
                     </li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h2 class="section-title"><i class="fas fa-hashtag"></i> Rețele Sociale</h2>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/alexandruarmas/" class="social-link linkedin" aria-label="LinkedIn" style="text-decoration: none;">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/mrarmas02" class="social-link github" aria-label="GitHub" style="text-decoration: none;">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="http://www.x.com/mrarmas02" class="social-link twitter" aria-label="X" style="text-decoration: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                    <a href="https://tiktok.com/@mrarmas02" class="social-link tiktok" aria-label="TikTok" style="text-decoration: none;">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://wa.me/+40726018217" class="social-link whatsapp" aria-label="WhatsApp" style="text-decoration: none;">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <a href="#" class="button" id="downloadVcard">
-                <i class="fas fa-address-card"></i> ADĂUGAȚI LA CONTACTE
-            </a>
-            
-            <a href="#" class="button secondary" id="sharePage">
-                <i class="fas fa-share-alt"></i> DISTRIBUȚI ACEASTĂ PAGINĂ
-            </a>
-            
-            <footer class="footer">
-                <p>&copy; <span id="currentYear"></span> Alexandru Armaș. Toate drepturile rezervate.</p>
-            </footer>
+                </a>
+                <a href="mailto:contact@alexandruarmas.ro" style="text-decoration: none; color: inherit;">
+                    <li class="link-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="link-content">
+                            <div class="link-title">Trimite-mi Email</div>
+                            <div class="link-subtitle">contact@alexandruarmas.ro</div>
+                        </div>
+                    </li>
+                </a>
+                <li class="link-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="link-content">
+                        <div class="link-title">ARM-Studio</div>
+                        <div class="link-subtitle">Creator de Hărți Fortnite & Dezvoltator UEFN</div>
+                    </div>
+                </li>
+            </ul>
         </div>
+        
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-hashtag"></i> Rețele Sociale</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/alexandruarmas/" class="social-link linkedin" aria-label="LinkedIn" style="text-decoration: none;">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/mrarmas02" class="social-link github" aria-label="GitHub" style="text-decoration: none;">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="http://www.x.com/mrarmas02" class="social-link twitter" aria-label="X" style="text-decoration: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://tiktok.com/@mrarmas02" class="social-link tiktok" aria-label="TikTok" style="text-decoration: none;">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/+40726018217" class="social-link whatsapp" aria-label="WhatsApp" style="text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <a href="#" class="button" id="downloadVcard">
+            <i class="fas fa-address-card"></i> ADĂUGAȚI LA CONTACTE
+        </a>
+        
+        <a href="#" class="button secondary" id="sharePage">
+            <i class="fas fa-share-alt"></i> DISTRIBUȚI ACEASTĂ PAGINĂ
+        </a>
+        
+        <footer class="footer">
+            <p>&copy; <span id="currentYear"></span> Alexandru Armas. Toate drepturile rezervate.</p>
+        </footer>
     </div>
     
     <script>
-        // Create portal particles
-        function createPortalParticles() {
-            const container = document.getElementById('portalParticles');
-            const particleCount = 12;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'portal-particle';
-                
-                // Position particles in a circle
-                const angle = (i / particleCount) * Math.PI * 2;
-                const radius = 90; // Slightly smaller than container
-                
-                particle.style.left = `${50 + Math.cos(angle) * radius}%`;
-                particle.style.top = `${50 + Math.sin(angle) * radius}%`;
-                
-                container.appendChild(particle);
-            }
-        }
-
-        // Intro Animation
-        window.addEventListener('load', function() {
-            createPortalParticles();
-            const introOverlay = document.getElementById('introOverlay');
-            const mainContent = document.getElementById('mainContent');
-            
-            // Show main content after 2.5 seconds
-            setTimeout(() => {
-                introOverlay.style.opacity = '0';
-                mainContent.classList.add('visible');
-                
-                // Remove intro overlay after fade out
-                setTimeout(() => {
-                    introOverlay.style.display = 'none';
-                }, 500);
-            }, 2500);
-        });
-
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
